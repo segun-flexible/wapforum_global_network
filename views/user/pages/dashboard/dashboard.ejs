@@ -1,0 +1,117 @@
+<%-include("../../partials/header");%>
+
+
+<%if(notice && notice.notice_status){%>
+<!--ANNOUNCEMENT-->
+<div class="row">
+    <%-include("./partials/notice")%>
+</div>
+<!--ANNOUNCEMENT-->
+<%}%>
+
+
+<div class="row <%=(notice && notice.notice_status) && 'mt-4'%>">
+
+    <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+        <div class="card">
+            <div class="card-body p-3">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="numbers">
+                            <p class="text-sm mb-0 text-capitalize font-weight-bold">Total Earnings</p>
+                            <h6 class="font-weight-bolder mb-0">
+                                <%=websiteDetails.website_currency + balance.total%>
+                                
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="col-4 text-end">
+                        <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                            <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+        <div class="card">
+            <div class="card-body p-3">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="numbers">
+                            <p class="text-sm mb-0 text-capitalize font-weight-bold">Activities Earnings</p>
+                            <h6 class="font-weight-bolder mb-0">
+                                <%=user.earnings_balance.toLocaleString()%> <span style="font-size: 13px !important;">coins</span>
+                                
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="col-4 text-end">
+                        <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                            <i class="ni ni-briefcase-24 text-lg opacity-10" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-4 col-sm-12 col-md-12 mb-xl-0 mb-4">
+        <div class="card">
+            <div class="card-body p-3">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="numbers">
+                            <p class="text-sm mb-0 text-capitalize font-weight-bold">Referral Earnings</p>
+                            <h6 class="font-weight-bolder mb-0">
+                                <%=websiteDetails.website_currency + user.referral_balance.toLocaleString()%>
+                                
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="col-4 text-end">
+                        <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                            <i class="fa fa-users text-lg opacity-10" aria-hidden="true"></i>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+</div>
+
+
+<div class="row mt-4">
+    
+
+<!--SPONSORED & COUPON -->
+<%-include("./partials/sponsoredAndCoupon")%>
+<!--SPONSORED & COUPON -->
+
+<!--REFERRAL -->
+<%-include("./partials/rememberBox")%>
+<!--REFERRAL -->
+
+    
+</div>
+
+
+
+<!--REFERRAL -->
+<%-include("./partials/referral")%>
+<!--REFERRAL -->
+
+<!--REFERRAL -->
+<%-include("./partials/earningHistory")%>
+<!--REFERRAL -->
+
+<!--Dashboard Js-->
+<script src="/js/user/dashboard/dashboard.js"></script>
+
+<%-include("../../partials/footer");%>

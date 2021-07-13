@@ -1,0 +1,87 @@
+<%-include("../../partials/header")%>
+
+<div class="container-fluid mt--6">
+    
+<%if(wallet){%>
+<div class="contact login">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 mx-auto">
+                
+                <div class="card-wrapper">
+            <!-- Form controls -->
+            <div class="card">
+              
+              <!-- Card body -->
+              <div class="card-body">
+                <form id="edit_wallet">
+
+                  <div class="form-group">
+                    <label class="form-control-label" for="exampleFormControlInput1">Bank Account Name</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" value="<%=wallet.bank_account_name%>">
+                  </div>
+                  
+                  <div class="form-group">
+                    <label class="form-control-label" for="bank_number">Bank Account Number</label>
+                    <input type="text" class="form-control" id="bank_number" value="<%=wallet.bank_account_number%>">
+                  </div>
+
+
+                  <div class="form-group">
+                    <label class="form-control-label" for="type_name">Bank Type Name</label>
+                    
+                    <input type="text" class="form-control" id="bank_type" value="<%=wallet.bank_account_type%>">
+                    
+                  </div>
+                  
+                  
+                    <div class="form-group">
+                        <a data-bs-toggle="modal" data-bs-target="#editWalletInfo" href="javascript:void(0)" class="btn btn-primary">Edit Wallet Info</a>
+
+                    </div>
+                  
+                  
+                  
+                </form>
+              </div>
+            </div>
+            
+          </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<%-include("./modal/editWallet")%>
+<script src="/js/user/wallet/edit.js"></script>
+
+<%}else{%>
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title text-center">You Have No Wallet At The Moment <br><br>
+                    <a data-bs-toggle="modal" data-bs-target="#new-wal" href="javascript:void(0)"
+                        class="btn btn-primary centerme">Create New Wallet</a>
+                </h5>
+        
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<%-include("./modal/newWallet")%>
+
+<script src="/js/user/wallet/new.js"></script>
+
+<%}%>
+
+
+<script src="/js/partials/fetcher.js"></script>
+<script src="/js/partials/sweetalert.js"></script>
+<%-include("../../partials/footer")%>

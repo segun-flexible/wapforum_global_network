@@ -1,0 +1,66 @@
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="noindex, nofollow">
+    <title><%=title%></title>
+
+    <link rel="shortcut icon" href="<%= websiteDetails.website_favicon %>">
+    
+    <link rel="stylesheet" href="/css/admin/bootstrap.css">
+    <link href="/css/admin/style.css" rel="stylesheet">
+    <link href="/css/admin/custom.css" rel="stylesheet">
+    <link href="/css/admin/circular.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-align: center;
+            align-items: center;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+    </style>
+    
+</head>
+
+<body>
+
+
+
+    <div class="splash-container">
+        <div class="card ">
+            <div class="card-header text-center"><a href="/"><img class="logo-img"
+                        src="<%=websiteDetails.website_logo %>" alt="logo" style="height: 35px;width: 100%;object-fit: contain;"></a><span class="splash-description">Admin Reset Password.</span></div>
+            <div class="card-body">
+                <form id="reset">
+                    <div class="form-group">
+                        <input class="form-control form-control-lg" id="credentials" type="text" placeholder="Username Or Email"
+                            required="">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Reset Password</button>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+
+
+    <script src="/js/admin/auth/forgot.js"></script>
+
+    <script src="/js/partials/adminFetcher.js"></script>
+    <script src="/js/partials/sweetalert.js"></script>
+
+
+</body>
+
+</html>

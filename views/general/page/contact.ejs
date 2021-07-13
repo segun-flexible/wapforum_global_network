@@ -1,0 +1,106 @@
+<%-include("../partials/header")%>
+<main id="main">
+
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+    
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li><a href="javascript:void(0)">Page</a></li>
+    
+            </ol>
+            <h2>
+                <%=title%>
+            </h2>
+    
+        </div>
+    </section><!-- End Breadcrumbs -->
+
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="contact">
+
+    <div class="container" data-aos="fade-up">
+
+        <div class="row gy-4">
+
+            <div class="col-12">
+                <form id="contact" class="php-email-form">
+                    <div class="row gy-4">
+            
+                        <div class="col-md-6">
+                            <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+                        </div>
+            
+                        <div class="col-md-6 ">
+                            <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                        </div>
+            
+                        <div class="col-md-12">
+                            <input type="text" class="form-control" id="subject" placeholder="Subject" required>
+                        </div>
+            
+                        <div class="col-md-12">
+                            <textarea class="form-control" id="message" rows="8" placeholder="Message" required></textarea>
+                        </div>
+            
+                        <div class="col-md-12 text-center">
+                            <button type="submit">Send Message</button>
+                        </div>
+            
+                    </div>
+                </form>
+            
+            </div>
+
+
+            <div class="col-12">
+
+                <div class="row gy-4">
+                    <div class="col-md-6">
+                        <div class="info-box">
+                            <i class="bi bi-geo-alt"></i>
+                            <h3>Address</h3>
+                            <p><%=websiteDetails.website_address%></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-box">
+                            <i class="bi bi-telephone"></i>
+                            <h3>Call Us</h3>
+                            <p><%=websiteDetails.website_phone_number%></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-box">
+                            <i class="bi bi-envelope"></i>
+                            <h3>Email Us</h3>
+                            <p><%=websiteDetails.website_email%></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="info-box">
+                            <i class="bi bi-clock"></i>
+                            <h3>Open Hours</h3>
+                            <p>Monday - Friday<br>9:00AM - 06:00PM</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            
+
+        </div>
+
+    </div>
+
+</section><!-- End Contact Section -->
+</main>
+
+<script src="/js/home/contact.js"></script>
+
+<script src="/js/partials/sweetalert.js"></script>
+
+<%-include("../partials/footer")%>

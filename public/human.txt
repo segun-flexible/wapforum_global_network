@@ -1,0 +1,8 @@
+/* PROJECT */
+
+	Project Name: Watch And Earn System
+	Developer Name: Flexible Tech Lab
+	Created:     2021/07/07
+	Standards:   HTML5, CSS3, JS
+	Components:  Nodejs, Express, EJS
+	Contact: contact@flexibletechlab.com // +2349021020979 Whatsapp Or Call

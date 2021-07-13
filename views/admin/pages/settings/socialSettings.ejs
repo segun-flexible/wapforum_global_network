@@ -1,0 +1,73 @@
+<%- include('../../partials/header'); %>
+
+
+    <div class="container-fluid dashboard-content">
+
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box">
+                    <h4 class="page-title">
+                        <%= title %>
+                    </h4>
+                </div>
+            </div>
+        </div>
+        <!-- end page title -->
+
+        <div class="row">
+            <div class="col-12">
+
+
+
+                <div class="card">
+                    <div class="card-body">
+
+
+                        <form id="settings">
+                            <div class="form-group">
+                                <label for="facebook">Website Facebook Handle</label>
+                                <input type="text" class="form-control" id="facebook" aria-describedby="facebook"
+                                    value="<%=websiteDetails.website_facebook %>" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="twitter">Website Twitter Handle</label>
+                                <input type="text" class="form-control" id="twitter" aria-describedby="twitter"
+                                    value="<%=websiteDetails.website_twitter %>" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="instagram">Website Instagram Handle</label>
+                                <input type="text" class="form-control" id="instagram" aria-describedby="instagram"
+                                    value="<%=websiteDetails.website_instagram %>" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="youtube">Website Youtube Handle</label>
+                                <input type="text" class="form-control" id="youtube" aria-describedby="youtube"
+                                    value="<%=websiteDetails.website_youtube %>" required>
+                            </div>
+                            
+
+
+                            
+
+
+                            <button type="submit" id="submit-btn"
+                                class="btn btn-primary waves-effect waves-light">Save Setting!</button>
+                        </form>
+
+                    </div> <!-- end card-body-->
+                </div> <!-- end card-->
+
+
+
+
+            </div><!-- end col-->
+        </div>
+    </div>
+
+    <script src="/js/admin/settings/social.js"></script>
+    <%- include('../../partials/footer'); %>
+

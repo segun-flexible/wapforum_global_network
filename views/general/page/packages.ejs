@@ -1,0 +1,69 @@
+<%-include("../partials/header")%>
+    <main id="main">
+
+
+        <!-- ======= Breadcrumbs ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+
+                <ol>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="javascript:void(0)">Page</a></li>
+
+                </ol>
+                <h2>
+                    <%=title%>
+                </h2>
+
+            </div>
+        </section><!-- End Breadcrumbs -->
+
+        <!-- ======= Pricing Section ======= -->
+        <section id="pricing" class="pricing">
+        
+            <div class="container" data-aos="fade-up">
+        
+             
+        
+                <div class="row gy-4" data-aos="fade-left">
+                    <%plans.map(pl=>{%>
+                        <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                            <div class="box">
+                                <h3 style="color: #ff901c;">
+                                    <%=pl.plan_name%>
+                                </h3>
+                                <div class="price"><sup>
+                                        <%=websiteDetails.website_currency%>
+                                    </sup>
+                                    <%=pl.plan_price.toLocaleString()%><span> / <%=pl.plan_duration%>
+                                                <%=pl.plan_duration> 1 ? ' Days' : ' Day'%></span>
+                                </div>
+                                <img src="/img/home/pricing-business.png" class="img-fluid" alt="">
+                                <ul>
+                                    <li>
+                                        <%=websiteDetails.website_currency%>
+                                            <%=pl.plan_activation_fee.toLocaleString()%> Activation Fee
+                                    </li>
+                                    <li>
+                                        <%=pl.plan_roi%>% Return on investment
+                                    </li>
+                                    <li>
+                                        <%=pl.plan_referral%>% referral bonus
+                                    </li>
+                                    <li>Withdraw <strong>Capital + ROI</strong> after <%=pl.plan_duration%>
+                                            <%=pl.plan_duration> 1 ? ' Days' : ' Day'%></li>
+                                </ul>
+                                <a href="/user/plans?merge?id=<%=pl.plan_id%>" class="btn-buy">Purchase Package</a>
+                            </div>
+                        </div>
+                        <%})%>
+                </div>
+        
+            </div>
+        
+        </section><!-- End Pricing Section -->
+
+    </main>
+
+
+    <%-include("../partials/footer")%>

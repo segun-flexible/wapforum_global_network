@@ -1,0 +1,191 @@
+<!doctype html>
+<html>
+
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    
+    <%if(shortUrl === "/"){%>
+    <title><%=websiteDetails.website_title%> - <%=websiteDetails.website_description%></title>
+
+    <meta name="description" content="<%=websiteDetails.website_description%>">
+
+    <%}else{%>
+    <title><%=title%> - <%=websiteDetails.website_title%></title>
+    <meta name="description" content="<%=description%>">
+    <%}%>
+    
+
+    
+    <meta name="keywords" content="<%=websiteDetails.website_keyword%>">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="<%=longUrl%>">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+
+    <%if(shortUrl === "/"){%>
+    <meta property="og:title" content="<%=websiteDetails.website_title%> - <%=websiteDetails.website_description%>">
+
+    <meta property="og:description" content="<%=websiteDetails.website_description%>">
+
+    <meta property="og:site_name" content="<%=websiteDetails.website_title%>">
+    
+    <meta property="og:image" content="<%=websiteDetails.website_logo%>">
+
+    <%}else{%>
+
+    <meta property="og:title" content="<%=title%> - <%=websiteDetails.website_title%>">
+
+    <meta property="og:description" content="<%=description%>">
+
+    <meta property="og:site_name" content="<%=title%>">
+    
+    <meta property="og:image" content="<%=ogImage || websiteDetails.website_logo%>">
+
+    <%}%>
+
+    <meta property="og:url" content="<%=longUrl%>">
+    
+    <meta property="og:image:width" content="400">
+    <meta property="og:image:height" content="400">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" type="image/png" href="<%=websiteDetails.website_favicon%>">
+    <link rel="stylesheet" href="/bootstrap-icons/bootstrap-icons.css">
+</head>
+<body>
+
+<nav class="panel-menu" id="mobile-menu">
+    <div class="mmpanels">
+        <div class="mmpanel mmopened mmcurrent" id="mm0">
+            <ul>
+                <li class="mm-close-parent"><a href="#close" data-target="#close" class="mm-close">
+                        Close
+                        <div class="tt-icon">
+                            <svg>
+                                <use xlink:href="#icon-cancel"></use>
+                            </svg>
+                        </div>
+                    </a></li>
+
+                <li><a href="page-categories.html"><span>Categories</span></a></li>
+                <li><a href="page-tabs.html"><span>Trending</span></a></li>
+                <li><a href="page-create-topic.html"><span>New</span></a></li>
+                <li>
+                    <a href="#mm1" data-target="#mm1" class="mm-next-level"><span>Pages</span></a>
+
+                </li>
+            </ul>
+        </div>
+        <div class="mmpanel mmhidden" id="mm1">
+            <ul>
+                <li><a href="#" data-target="#" class="mm-prev-level">Back</a></li>
+                <li><a href="page-single-user.html" class="mm-original-link"><span>Pages</span></a></li>
+                <li class="active"><a href="index.html">Home</a></li>
+                <li><a href="page-single-topic.html">Single Topic</a></li>
+                <li><a href="page-create-topic.html">Create Topic</a></li>
+                <li><a href="page-single-user.html">Single User Activity</a></li>
+                <li><a href="page-single_threads.html">Single User Threads</a></li>
+                <li><a href="page-single_replies.html">Single User Replies</a></li>
+                <li><a href="page-single_followers.html">Single User Followers</a></li>
+                <li><a href="page-single_categories.html">Single User Categories</a></li>
+                <li><a href="page-single_settings.html">Single User Settings</a></li>
+                <li><a href="page-signup.html">Sign up</a></li>
+                <li><a href="page-login.html">Log in</a></li>
+                <li><a href="page-categories.html">Categories</a></li>
+                <li><a href="page-categories-single.html">Single Category</a></li>
+                <li><a href="page-tabs.html">About</a></li>
+                <li><a href="page-tabs_guidelines.html">Guidelines</a></li>
+                <li><a href="_demo_modal-advancedSearch.html">Advanced Search</a></li>
+                <li><a href="error404.html">Error 404</a></li>
+                <li><a href="_demo_modal-age-confirmation.html">Age Verification</a></li>
+                <li><a href="_demo_modal-level-up.html">Level up Notification</a></li>
+                <li><a href="messages-page.html">Message</a></li>
+                <li><a href="messages-compose.html">Message Compose</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header id="tt-header">
+    <div class="container">
+        <div class="row tt-row no-gutters">
+            <div class="col-auto">
+                <!-- toggle mobile menu -->
+                <a class="toggle-mobile-menu" href="#" style="">
+                    <svg class="tt-icon">
+                        <use xlink:href="#icon-menu_icon"></use>
+                    </svg>
+                </a>
+                <!-- /toggle mobile menu -->
+                <!-- logo -->
+                <div class="tt-logo">
+                    <a href="/"><img src="<%=websiteDetails.website_logo%>" alt="<%=websiteDetails.website_title%>"></a>
+                </div>
+                <!-- /logo -->
+
+                <!-- desctop menu -->
+                <div class="tt-desktop-menu">
+                    <nav>
+                        <ul>
+                            <li><a href="page-categories.html"><span>Categories</span></a></li>
+                            <li><a href="page-tabs.html"><span>Trending</span></a></li>
+                            <li><a href="page-create-topic.html"><span>New</span></a></li>
+                            <li>
+                                <a href="page-single-user.html"><span>Pages</span></a>
+                                <ul>
+                                    <li class="active"><a href="index.html">Home</a></li>
+                                    <li><a href="page-single-topic.html">Single Topic</a></li>
+                                    <li><a href="page-create-topic.html">Create Topic</a></li>
+                                    <li><a href="page-single-user.html">Single User Activity</a></li>
+                                    <li><a href="page-single_threads.html">Single User Threads</a></li>
+                                    <li><a href="page-single_replies.html">Single User Replies</a></li>
+                                    <li><a href="page-single_followers.html">Single User Followers</a></li>
+                                    <li><a href="page-single_categories.html">Single User Categories</a></li>
+                                    <li><a href="page-single_settings.html">Single User Settings</a></li>
+                                    <li><a href="page-signup.html">Sign up</a></li>
+                                    <li><a href="page-login.html">Log in</a></li>
+                                    <li><a href="page-categories.html">Categories</a></li>
+                                    <li><a href="page-categories-single.html">Single Category</a></li>
+                                    <li><a href="page-tabs.html">About</a></li>
+                                    <li><a href="page-tabs_guidelines.html">Guidelines</a></li>
+                                    <li><a href="_demo_modal-advancedSearch.html">Advanced Search</a></li>
+                                    <li><a href="error404.html">Error 404</a></li>
+                                    <li><a href="_demo_modal-age-confirmation.html">Age Verification</a></li>
+                                    <li><a href="_demo_modal-level-up.html">Level up Notification</a></li>
+                                    <li><a href="messages-page.html">Message</a></li>
+                                    <li><a href="messages-compose.html">Message Compose</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- /desctop menu -->
+
+                <!-- tt-search -->
+                <div class="tt-search">
+                    <!-- toggle -->
+                    <button class="tt-search-toggle" data-toggle="modal" data-target="#mobileSearch">
+                        <svg class="tt-icon">
+                            <use xlink:href="#icon-search"></use>
+                        </svg>
+                    </button>
+                    <!-- /toggle -->
+                    <%-include("../components/searchBox")%>
+                </div>
+                <!-- /tt-search -->
+            </div>
+            <div class="col-auto ml-auto">
+                <div class="tt-account-btn">
+                    <a href="page-login.html" class="btn btn-primary">Log in</a>
+                    <a href="page-signup.html" class="btn btn-secondary">Sign up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

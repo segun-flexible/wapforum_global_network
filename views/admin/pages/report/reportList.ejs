@@ -1,0 +1,181 @@
+<%- include('../../partials/header'); %>
+
+
+
+
+    <div class="container-fluid dashboard-content">
+
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box">
+                    <h4 class="page-title">
+                        <%= title %>
+                    </h4>
+                </div>
+            </div>
+        </div>
+        <!-- end page title -->
+
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="card">
+                    
+                    <h5 class="card-header" style="text-transform: capitalize;">
+                    
+                    <div class="dataTables_length" id="scroll-horizontal-datatable_length">
+                        <label>Filter By Status</label>
+                        <select id="type" class="custom-select custom-select-sm form-control form-control-sm">
+                            <option value="">Select Status</option>
+                            <option value="1">Resolved Report</option>
+                            <option value="0">Pending Report</option>
+                    
+                        </select>
+                    </div>
+
+
+                        <div class="actions float-right pt-2">
+        
+                        
+                            <a href="javascript: void(0);" id="delete-all" class="btn btn-xs btn-danger ml-1">Delete Marked <i class="fa fa-trash"
+                                    aria-hidden="true"></i></a>
+                        
+                        
+                        </div>
+
+                    </h5>
+                    
+
+                    <div class="card-body p-0">
+                        <%if(reports.length> 0){ %>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class="bg-light">
+                                        <tr class="border-0">
+                                            
+                                            <%if(reports.length > 1){%>
+
+                                            
+                                            <th class="border-0">
+                                                
+                                                <label class="custom-control custom-checkbox">
+                                                <input id="mark-head" type="checkbox" class="custom-control-input"><span class="custom-control-label"></span>
+                                            </label>
+                                            
+                                            </th>
+                                            <%}%>
+
+                                            <th class="border-0">#</th>
+                                            <th class="border-0">Trx ID</th>
+                                            <th class="border-0">User</th>
+                                            <th class="border-0">Type</th>
+                                            
+                                            <th class="border-0">Message</th>
+                                            
+                                            <th class="border-0">Date</th>
+
+                                            <th class="border-0">Status</th>
+
+                                            
+                                            <th class="border-0">Action</th>
+                                            
+        
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <%reports.map((rp,index)=>{ %>
+                                            <tr>
+                                                <%if(reports.length > 1){%>
+                                                <td>
+                                                    <label class="custom-control custom-checkbox">
+                                                    <input data-report_id="<%=rp.rp_id%>" id="mark" type="checkbox" class="custom-control-input"><span
+                                                        class="custom-control-label"></span>
+                                                </label>
+
+                                                </td>
+                                                <%}%>
+
+                                                <td>
+                                                    <%=index + 1 %>
+                                                </td>
+        
+                                                <td>
+                                                    <%=rp.rp_trx_id %>
+                                                </td>
+
+                                                <td>
+                                                    <strong><%=rp.username%></strong>
+                                                </td>
+
+                                                <td>
+                                                    <%=rp.rp_type===1 ? 'Investment' : 'Withdrawal' %>
+                                                </td>
+                                                
+                                                
+                                               
+                                                
+                                                
+                                                <td>
+                                                    <a href="javascript: void(0);" class="btn btn-xs btn-info ml-1 view" data-toggle="modal" data-target="#message-<%=rp.rp_id%>"><i class="fa fa-eye" aria-hidden="true"></i> View Message</a>
+                                                </td>
+
+                                            
+                                                <td>
+                                                    <%=rp.rp_created_at %>
+                                                </td>
+
+                                                <td>
+                                                    <%if(rp.rp_status === 1){ %>
+                                                        <button type="button" class="btn btn-success btn-sm width-sm waves-effect waves-light"><i class="fa fa-check" aria-hidden="true"></i>Resolved</button>
+                                                    <%}else{%>
+                                                    <button type="button" class="btn btn-danger btn-sm waves-effect waves-light"><i class="fa fa-exclamation-triangle"
+                                                            aria-hidden="true"></i>
+                                                        Pending</button>
+                                                    <%} %>
+                                                </td>
+
+                                                <td>
+                                                    <a onclick="deleteReport('<%=rp.rp_id%>',this)" href="javascript: void(0);" class="btn btn-xs btn-danger ml-1 "><i class="fa fa-trash" aria-hidden="true"></i></a>
+
+                                                </td>
+        
+                                                
+        
+        
+                                            </tr>
+
+                                            <!--WALLET MODAL-->
+                                            <%-include("./modal/messageModal",{rp})%>
+                                            <!--WALLET MODAL-->
+                                           
+                                            <% }) %>
+        
+                                                <tr>
+                                                    <td colspan="9"></td>
+                                                </tr>
+                                    </tbody>
+        
+                                </table>
+
+                                <%-include("../../partials/pagination")%>
+                                
+        
+                            </div>
+                            <% }else{%>
+                                <h3 class="text-center pt-3">No Report At The Moment</h3>
+                                <%}%>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        
+    </div>
+
+
+
+<script src="/js/admin/report/reportList.js"></script>
+<%-include('../../partials/footer'); %>

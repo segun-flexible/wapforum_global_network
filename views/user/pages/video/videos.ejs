@@ -1,0 +1,32 @@
+<%-include("../../partials/header");%>
+
+<div class="row">
+    
+        <%if(videos.length){%>
+
+        <%videos.map(v =>{%>
+        <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+        <%-include("./partials/videoCard",{video:v})%>
+        </div>
+        <%})%>
+        
+
+
+        <%}else{%>
+
+        <%}%>
+   
+        
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <%-include("../../partials/pagination");%>
+    </div>
+</div>
+
+
+
+<%-include("../../partials/footer");%>
+
+

@@ -1,0 +1,43 @@
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    style="display: none;" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <strong class="modal-title method-name" id="exampleModalLabel">Edit Testimony</strong>
+                <a href="javascript:void(0)" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </a>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <form data-id="<%=testimony.t_id%>" id="edit">
+
+                        <div class="row">
+
+
+                            <div class="col-md-12">
+                                
+                                <div class="form-group">
+                                    <label class="form-control-label" for="type_name">Your Testimony</label>
+                                
+                                    <textarea required class="form-control" id="" cols="30" rows="10"><%=testimony.t_message%></textarea>
+                                
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <button id="proceed" type="submit" class="btn btn-primary btn-block mt-2 text-center">Edit</button>
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

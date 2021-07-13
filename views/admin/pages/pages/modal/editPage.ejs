@@ -1,0 +1,60 @@
+<div class="modal fade" id="edit-<%=pg.page_id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    style="display: none;" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <strong class="modal-title" id="exampleModalLabel">Edit <%=pg.page_title %></strong>
+                <a href="javascript:void(0)" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </a>
+            </div>
+            <form id="editPage">
+
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="title">Page Title</label>
+                        <input type="text" class="form-control" id="title" value="<%=pg.page_title %>" required>
+                        
+                    
+                    </div>
+
+                    <div class="form-group">
+                        <label for="slug">Page Slug</label>
+                        <div style="display: flex;">
+                            <input type="text" class="form-control" id="slug" aria-describedby="slug" required 
+                                value="<%=pg.page_slug %>">
+                        </div>
+                    </div>
+
+                    
+                    <div class="form-group">
+                        <label for="desc">Page Description</label>
+                        <textarea class="form-control" id="summernote" rows="3"><%-pg.page_description %></textarea>
+                        
+                    
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="check-<%=pg.page_id%>">Page Visibility</label><br>
+                        <div class="switch-button switch-button-yesno">
+                            <input type="checkbox" <%=parseInt(pg.page_status) &&  'checked' %> name="check-<%=pg.page_id%>" id="check-<%=pg.page_id%>"><span>
+                                <label for="check-<%=pg.page_id%>"></label></span>
+                        </div>
+                    </div>
+                    
+                    <input type="number" hidden id="id" value="<%=pg.page_id%>">
+                
+
+                    
+
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" id="button" class="btn btn-primary">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

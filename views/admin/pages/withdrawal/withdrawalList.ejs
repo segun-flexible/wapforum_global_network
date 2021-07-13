@@ -1,0 +1,214 @@
+<%- include('../../partials/header'); %>
+
+
+
+
+    <div class="container-fluid dashboard-content">
+
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box">
+                    <h4 class="page-title">
+                        <%= title %>
+                    </h4>
+                </div>
+            </div>
+        </div>
+        <!-- end page title -->
+
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="card">
+                    <%if((type === "pending" || type === "processing") && history.length > 1){%>
+
+                    
+                    <h5 class="card-header" style="text-transform: capitalize;"><%=type%> Withdrawal List
+                    <div id="scroll-horizontal-datatable_filter" class="dataTables_filter">
+                        <form id="search" id="search"><label>Search By Trx ID:</label><input type="search"
+                                class="form-control form-control-sm" placeholder="Search By Transaction ID" name="trans" required=""></form>
+                    </div>
+
+                        <div class="actions float-right">
+                            
+
+                            
+                        
+                            <a href="javascript: void(0);" id="approved-marked" class="btn btn-xs btn-info ml-1 pay">Approved Marked <i
+                                    class="fa fa-paper-plane" aria-hidden="true"></i></a>
+                        
+                            <a href="javascript: void(0);" id="delete-all" class="btn btn-xs btn-danger ml-1">Delete Marked <i class="fa fa-trash"
+                                    aria-hidden="true"></i></a>
+                        
+                        
+                        </div>
+
+                    </h5>
+                    <%}else{%>
+                    <h5 class="card-header" style="text-transform: capitalize;">
+                        <%=type%> Withdrawal List
+                        </h5>
+                    <%}%>
+
+                    <div class="card-body p-0">
+                        <%if(history.length> 0){ %>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class="bg-light">
+                                        <tr class="border-0">
+                                            
+                                            <%if((type === "pending" || type === "processing") && history.length > 1){%>
+
+                                            
+                                            <th class="border-0">
+                                                
+                                                <label class="custom-control custom-checkbox">
+                                                <input id="mark-head" type="checkbox" class="custom-control-input"><span class="custom-control-label"></span>
+                                            </label>
+                                            
+                                            </th>
+                                            <%}%>
+
+                                            <th class="border-0">#</th>
+                                            <th class="border-0">Trx ID</th>
+                                            <th class="border-0">User</th>
+                                            <th class="border-0">Amount</th>
+                                            
+                                            <th class="border-0">Sender</th>
+                                            
+                                            <th class="border-0">Wallet</th>
+                                            
+                                            <th class="border-0">Proof</th>
+                                            
+                                            <th class="border-0">Date</th>
+                                            <th class="border-0">Status</th>
+                                            
+                                            <%if(type==="pending"){%>
+                                            <th class="border-0">Action</th>
+                                            <%}%>
+        
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <%history.map((ht,index)=>{ %>
+                                            <tr>
+                                                <%if((type === "pending" || type === "processing") && history.length > 1){%>
+                                                <td>
+                                                    <label class="custom-control custom-checkbox">
+                                                    <input data-amount="<%=ht.h_amount_requested%>" data-user_id="<%=ht.h_user_id %>" data-withdrawal_id="<%=ht.h_id %>" id="mark" type="checkbox" class="custom-control-input"><span
+                                                        class="custom-control-label"></span>
+                                                </label>
+
+                                                </td>
+                                                <%}%>
+
+                                                <td>
+                                                    <%=index + 1 %>
+                                                </td>
+        
+                                                <td>
+                                                    <%=ht.h_trans %>
+                                                </td>
+                                                <td>
+                                                    <strong><%=ht.username%></strong>
+                                                </td>
+                                                <td>
+                                                    <%=websiteDetails.website_currency%><%=ht.h_amount_requested.toLocaleString() %> 
+                                                </td>
+                                                
+                                                <td>
+                                                    <%if(ht.h_sender_id){%>
+                                                    <a href="javascript: void(0);" class="btn btn-xs btn-info ml-1 view"
+                                                        onclick="fetchSender('<%=ht.h_sender_id%>','<%=ht.h_user_type%>',this)"><i class="fa fa-eye" aria-hidden="true"></i>
+                                                        View Sender</a>
+                                                    <%}else{%>
+                                                    None
+                                                    <%}%>
+                                                    
+                                                </td>
+                                               
+                                                
+                                                
+                                                <td>
+                                                    <a href="javascript: void(0);" class="btn btn-xs btn-info ml-1 view" data-toggle="modal" data-target="#wallet-<%=ht.h_id%>"><i class="fa fa-eye" aria-hidden="true"></i> View Wallet</a>
+                                                </td>
+
+                                                <td>
+                                                <%if(ht.h_proof){%>
+                                                
+                                                    <a href="javascript: void(0);" class="btn btn-xs btn-info ml-1 view" data-toggle="modal" data-target="#proof-<%=ht.h_id%>"><i class="fa fa-thumb-tack" aria-hidden="true"></i> View Proof</a>
+                                                
+                                                <%}else{%>
+                                                None
+                                                <%}%>
+                                                </td>
+                                                <td>
+                                                    <%=ht.h_created%>
+                                                </td>
+
+                                                
+        
+                                                <td>
+                                                    <%if(ht.h_status === 1){%>
+                                                    <button type="button" class="btn btn-success btn-xs waves-effect waves-light">Paid</button>
+                                                    <%}else if(ht.h_status === 2){%>
+                                                    
+                                                    <button type="button" class="btn btn-info btn-xs waves-effect waves-light">Processing</button>
+                                                    
+                                                    <%} else{%>
+                                                    <button type="button" class="btn btn-danger btn-xs waves-effect waves-light">Pending</button>
+                                                    <%}%>
+                                                </td>
+        
+                                                <%if((type === "pending" || type === "processing")){%>
+                                                <td>
+                                                    <a 
+                                                    href="javascript: void(0);" class="btn btn-xs btn-info ml-1" onclick="approvePayment('<%=ht.h_id%>',this)"><i class="fa fa-paper-plane" aria-hidden="true"></i></a>
+        
+                                                    <a onclick="declinePayment('<%=ht.h_id%>',this)" href="javascript: void(0);" class="btn btn-xs btn-danger ml-1 "><i
+                                                            class="fa fa-trash" aria-hidden="true"></i></a>
+                                                </td>
+                                                <%}%>
+        
+        
+                                            </tr>
+
+                                            <!--WALLET MODAL-->
+                                            <%-include("./modal/walletModal",{h:ht})%>
+                                            <!--WALLET MODAL-->
+                                            
+                                            <!--PAY MODAL-->
+                                            <%-include("./modal/proofModal",{h:ht})%>
+                                            <!--PAY MODAL-->
+                                            <% }) %>
+        
+                                                <tr>
+                                                    <td colspan="9"></td>
+                                                </tr>
+                                    </tbody>
+        
+                                </table>
+
+                                <%-include("../../partials/pagination")%>
+                                
+        
+                            </div>
+                            <% }else{%>
+                                <h3 class="text-center pt-3">No <%=type%> Withdrawal At The Moment</h3>
+                                <%}%>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        
+    </div>
+
+<%-include("./modal/userModal")%>
+<a href="javascript:void(0)" id="userModal" data-toggle="modal" data-target="#user-modal" hidden></a>
+
+<script src="/js/admin/withdrawal/withdrawalList.js"></script>
+<%-include('../../partials/footer'); %>

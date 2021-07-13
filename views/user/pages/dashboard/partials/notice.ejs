@@ -1,0 +1,36 @@
+<div class="col-12">
+<div class="card p-3">
+    <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100"
+        style="background-image: url('/img/user/ivancik.jpg');">
+        <span class="mask bg-gradient-dark"></span>
+        <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
+            <h5 class="text-white font-weight-bolder mb-4 pt-2"><i class="fa fa-bullhorn text-primary" aria-hidden="true"></i> Annoucement Board</h5>
+
+            <div class="card">
+                <div class="card-body pt-2">
+                
+                    <a href="javascript:;"
+                        class="card-title h5 d-block text-darker">
+                        <%=notice.notice_title%>
+                    </a>
+                    <p class="card-description">
+                        <%-notice.notice_body%>
+                    </p>
+                
+                
+                    <div class="stats">
+                        <small><i class="fa fa-clock-o" aria-hidden="true"></i> <%=notice.updated_at || notice.created_at %></small>
+                    </div>
+                
+                
+                
+                
+                
+                
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>

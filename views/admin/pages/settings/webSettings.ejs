@@ -1,0 +1,114 @@
+<%- include('../../partials/header'); %>
+
+
+    <div class="container-fluid dashboard-content">
+
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box">
+                    <h4 class="page-title">
+                        <%= title %>
+                    </h4>
+                </div>
+            </div>
+        </div>
+        <!-- end page title -->
+
+        <div class="row">
+            <div class="col-12">
+
+
+
+                <div class="card">
+                    <div class="card-body">
+
+
+                        <form id="settings">
+                            <div class="form-group">
+                                <label for="title">Website Title</label>
+                                <input type="text" class="form-control" id="title" aria-describedby="title" name="website_title" value="<%=websiteDetails.website_title %>" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="tagline">Website Tagline</label>
+                                <input type="text" class="form-control" id="tagline" aria-describedby="tagline" value="<%=websiteDetails.website_tagline %>" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="url">Website Url</label>
+                                <input type="text" class="form-control" id="url" aria-describedby="url" value="<%=websiteDetails.website_url %>" required>
+                            </div>
+
+                            
+                            <div class="form-group">
+                                <label for="description">Website Description (Max - 160 Words)</label>
+                                <textarea id="description" name="editordata" class="form-control" rows="3"
+                                    spellcheck="true"><%=websiteDetails.website_description %></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="description">Website Keyword (SEO)</label>
+                                <textarea id="keyword" name="editordata" class="form-control" rows="3"
+                                    spellcheck="true"><%=websiteDetails.website_keyword %></textarea>
+                                <small id="max_earn" class="form-text text-muted">Seperate each word with comma(,)</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="number">Website Phone Number</label>
+                                <input type="text" class="form-control" id="number" aria-describedby="number" value="<%=websiteDetails.website_phone_number %>" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="address">Website Office Address</label>
+                                <input type="text" class="form-control" id="address" aria-describedby="address" value="<%=websiteDetails.website_address %>" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Website Email</label>
+                                <input type="email" class="form-control" id="email" aria-describedby="email" value="<%=websiteDetails.website_email %>" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="author">Website Author Name</label>
+                                <input type="text" class="form-control" id="author" aria-describedby="author" value="<%=websiteDetails.website_author %>" required>
+                            </div>
+
+                            
+
+                            <div class="form-group">
+                                <label for="currency">Website Currency Sign</label>
+                                <input type="text" class="form-control" id="currency" aria-describedby="currency" value="<%=websiteDetails.website_currency %>" required>
+                            </div>
+
+
+                            <br><br>
+
+                            <div class="form-group">
+                                <label for="header">Website Header Inserter</label>
+                                <textarea id="header" name="editordata" class="form-control" rows="20"
+                                    spellcheck="true"><%=websiteDetails.website_header_code %></textarea>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label for="footer">Website Footer Inserter</label>
+                                <textarea id="footer" name="editordata" class="form-control" rows="20"
+                                    spellcheck="true"><%=websiteDetails.website_footer_code %></textarea>
+                            </div>
+
+                            <button type="submit" id="submit-btn"
+                                class="btn btn-primary waves-effect waves-light">Save Setting!</button>
+                        </form>
+
+                    </div> <!-- end card-body-->
+                </div> <!-- end card-->
+
+
+
+
+            </div><!-- end col-->
+        </div>
+    </div>
+
+    <script src="/js/admin/settings/webSettings.js"></script>
+    <%- include('../../partials/footer'); %>

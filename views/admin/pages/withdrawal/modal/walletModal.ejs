@@ -1,0 +1,38 @@
+<div id="wallet-<%=h.h_id%>" class="modal fade" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <%if(h.bank_id){%>
+                <ul class="list-group">
+                    <li class="list-group-item dark-bg">Bank Account Name: <span class="deposit-amount font-weight-bold text-dark">
+                            <%=h.bank_account_name%>
+                
+                        </span></li>
+                    <li class="list-group-item dark-bg">Bank Account Number: <span class="deposit-amount font-weight-bold text-dark">
+                            <%=h.bank_account_number%>
+                        </span></li>
+                    <li class="list-group-item dark-bg">Bank Account Type: <span class="deposit-charge font-weight-bold text-dark">
+                            <%=h.bank_account_type%>
+                        </span></li>
+                
+                
+                
+                </ul>
+                <%}else{%>
+                <h6><%=h.username%> Has No Wallet</h6>
+                <%}%>
+                
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-dismiss="modal"> Close </button>
+            </div>
+        </div>
+    </div>
+</div>

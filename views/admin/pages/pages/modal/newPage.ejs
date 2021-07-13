@@ -1,0 +1,53 @@
+<div class="modal fade" id="new_page" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    style="display: none;" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <strong class="modal-title" id="exampleModalLabel">Create New Page</strong>
+                <a href="javascript:void(0)" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </a>
+            </div>
+            <form id="newPage">
+
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="title">Page Title</label>
+                        <input type="text" class="form-control" id="title" value="" required>
+
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="slug">Page Slug</label>
+                        <div style="display: flex;">
+                            <input type="text" class="form-control" id="slug" aria-describedby="slug" required
+                                value="">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="desc">Page Description</label>
+                        <textarea class="form-control" id="summernote" rows="3"></textarea>
+
+
+                    </div>
+
+                    
+
+              
+
+
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" id="button" class="btn btn-primary">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,67 @@
+<%-include("../partials/header")%>
+
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li><a href="javascript:void(0)">Page</a></li>
+                
+            </ol>
+            <h2><%=page.page_title%></h2>
+
+        </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Blog Single Section ======= -->
+    <section id="blog" class="blog">
+        <div class="container aos-init aos-animate" data-aos="fade-up">
+
+            <div class="row">
+
+                <div class="col-lg-9 entries blog-details">
+
+                    <article class="entry entry-single">
+
+
+                        <h2 class="entry-title">
+                            <a href="javascript:void(0)"><%=page.page_title%></a>
+                        </h2>
+
+                        <div class="entry-meta">
+                            <ul>
+                                <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a
+                                        href="javascript:void(0)"><%=page.username%></a></li>
+                                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a
+                                        href="javascript:void(0)"><time datetime="<%=page.page_created_at%>"><%=page.page_created_at%></time></a></li>
+                                
+                            </ul>
+                        </div>
+
+                        <div class="entry-content">
+                            <%-page.page_description%>
+                        </div>
+
+                        
+
+                    </article><!-- End blog entry -->
+
+
+
+                </div><!-- End blog entries list -->
+
+                <!-- End blog sidebar -->
+
+            </div>
+
+        </div>
+    </section><!-- End Blog Single Section -->
+
+</main>
+
+
+<%-include("../partials/footer")%>

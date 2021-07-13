@@ -1,0 +1,178 @@
+<%- include('../../partials/header'); %>
+
+
+
+
+    <div class="container-fluid dashboard-content">
+
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box">
+                    <h4 class="page-title">
+                        <%= title %>
+                    </h4>
+                </div>
+            </div>
+        </div>
+        <!-- end page title -->
+
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="scroll-horizontal-datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                            <div class="row">
+                                
+                                <div class="col-sm-12 col-md-4">
+                                    <div class="dataTables_length" id="scroll-horizontal-datatable_length">
+                                        <label>Filter By Type</label>
+                                        <select id="type"
+                                            class="custom-select custom-select-sm form-control form-control-sm">
+                                            <option value="">Select Type</option>
+                                            <option value="pending">Pending Merge</option>
+                                            <option value="approved">Approved Merge</option>
+                                            <option value="completed">Completed Merge</option>
+                                            
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-sm-12 col-md-4">
+                                    <div id="scroll-horizontal-datatable_filter" class="dataTables_filter">
+                                        <form class="search-member" id="search"><label>Search By Trx ID:</label><input type="search"
+                                                class="form-control form-control-sm" placeholder="Search By Transaction ID"
+                                                name="trans" required></form>
+                                    </div><br>
+                    
+                    
+                                </div>
+                    
+                    
+                    
+                                <div class="col-sm-12 col-md-4">
+                                    <div class="dataTables_length" id="scroll-horizontal-datatable_length">
+                                        <label>Reset:</label><br>
+                                        <a id="reset" href="javascript: void(0);" class="btn btn-xs btn-warning reset"><i
+                                                class="mdi mdi-delete-forever"></i> Reset
+                                            Query</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="card">
+                    
+
+
+                    <div class="card-body p-0">
+                        <%if(history.length> 0){ %>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class="bg-light">
+                                        <tr class="border-0">
+                                            <th class="border-0">#</th>
+                                            <th class="border-0">TrxId</th>
+                                            <th class="border-0">Sender</th>
+                                            <th class="border-0">Reciever</th>
+                                            <th class="border-0">Amount</th>
+                                            <th class="border-0">Proof</th>
+                                            <th class="border-0">Status</th>
+                                            <th class="border-0">Date</th>
+
+                                            <%if(status === 0){%>
+                                            <th class="border-0">Action</th>
+                                            <%}%>
+        
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <%history.map((ht,index)=>{ %>
+                                            <tr>
+                                                <td>
+                                                    <%=index + 1 %>
+                                                </td>
+                                                
+                                                <td>
+                                                    <%=ht.h_trans %>
+                                                </td>
+        
+                                                <td>
+                                                    <button onclick="fetchSender('<%=ht.h_sender_id%>',this)" id="sender" type="button" class="btn btn-info width-sm waves-effect waves-light">View Sender</button>
+                                                </td>
+                                                
+                                                <td>
+                                                    <button onclick="fetchReciever('<%=ht.h_receiver_id%>','<%=ht.h_user_type%>',this)" type="button" class="btn btn-info width-sm waves-effect waves-light">View Reciever</button>
+                                                </td>
+                                                
+                                                
+                                                <td>
+                                                    <%=websiteDetails.website_currency%><%=ht.h_amount.toLocaleString() %>
+                                                </td>
+                                                
+                                                <td>
+                                                    <button data-toggle="modal" data-target="#proof-<%=ht.h_id%>" type="button" class="btn btn-info width-sm waves-effect waves-light">View P.O.P</button>
+                                                </td>
+
+                                                <td>
+                                                    <%if(ht.h_status === 1){%>
+                                                    <button type="button" class="btn btn-success width-sm waves-effect waves-light">Approved</button>
+                                                    <%}else if(ht.h_status === 2){%>
+                                                    <button type="button" class="btn btn-info width-sm waves-effect waves-light">Completed</button>
+                                                    <%}else{%>
+                                                    <button type="button" class="btn btn-danger width-sm waves-effect waves-light">Pending</button>
+                                                    <%}%>
+                                                </td>
+
+                                                <td>
+                                                    <%=ht.h_created_at%>
+                                                </td>
+
+                                                <%if(status === 0){%>
+                                                <td>
+                                                <a href="javascript: void(0);" class="btn btn-xs btn-info ml-1 approved" onclick="approveMerge('<%=ht.h_id%>',this)"><i class="fa fa-paper-plane" aria-hidden="true"></i></a>
+                                                
+                                                <a onclick="declineMerge('<%=ht.h_id%>',this)" id="delete-one" data-id="<%=ht.h_id%>" href="javascript: void(0);" class="btn btn-xs btn-danger ml-1 "><i
+                                                        class="fa fa-trash" aria-hidden="true"></i></a>
+                                                </td>
+                                                <%}%>
+                                            </tr>
+
+                                            <%-include("./modal/investProofModal",{h:ht})%>
+
+                                            <%})%>
+
+                                            
+                                                <tr>
+                                                    <td colspan="9"></td>
+                                                </tr>
+                                    </tbody>
+        
+                                </table>
+        
+                                <%-include("../../partials/pagination")%>
+        
+                            </div>
+                            <% }else{%>
+                                <h3 class="text-center pt-3">No Merge History At The Moment</h3>
+                                <%}%>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        
+    </div>
+
+<%-include("./modal/userModal")%>
+<a href="javascript:void(0)" id="userModal" data-toggle="modal" data-target="#user-modal" hidden></a>
+
+<script src="/js/admin/history/merge.js"></script>
+<%-include('../../partials/footer'); %>

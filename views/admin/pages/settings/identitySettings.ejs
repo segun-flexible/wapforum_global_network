@@ -1,0 +1,72 @@
+<%- include('../../partials/header'); %>
+
+
+    <div class="container-fluid dashboard-content">
+
+        <!-- start page title -->
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box">
+                    <h4 class="page-title">
+                        <%= title %>
+                    </h4>
+                </div>
+            </div>
+        </div>
+        <!-- end page title -->
+
+        <div class="row">
+            <div class="col-12">
+
+
+
+                <div class="card">
+                    <div class="card-body">
+
+
+                        <form id="settings">
+                           
+
+                            <div class="form-group">
+                                <img id="logo" src="<%= websiteDetails.website_logo %>" alt="image"
+                                    class="img-fluid rounded-circle img-thumbnail avatar-preview"
+                                    style="width: 100px;height: 100px;object-fit: cover;">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="logo">Website Logo</label>
+                                <input type="file" name="logo" class="form-control" id="logo">
+                            </div>
+
+                            <br>
+
+                            <div class="form-group">
+                                <img id="favicon" src="<%= websiteDetails.website_favicon %>" alt="image"
+                                    class="img-fluid rounded-circle img-thumbnail avatar-preview"
+                                    style="width: 100px;height: 100px;object-fit: cover;">
+                            </div>
+                            
+                            
+                            <div class="form-group">
+                                <label for="logo">Website Favicon</label>
+                                <input name="favicon" type="file" class="form-control" id="favicon">
+                            </div>
+
+
+                            <button type="submit" id="submit-btn"
+                                class="btn btn-primary waves-effect waves-light">Save Setting!</button>
+                        </form>
+
+                    </div> <!-- end card-body-->
+                </div> <!-- end card-->
+
+
+
+
+            </div><!-- end col-->
+        </div>
+    </div>
+
+    <script src="/js/admin/settings/identity.js"></script>
+    <%- include('../../partials/footer'); %>

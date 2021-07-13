@@ -1,0 +1,31 @@
+<div class="col-lg-5">
+    <div class="card p-3">
+        <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100"
+            style="background-image: url('/img/user/ivancik.jpg');">
+            <span class="mask bg-gradient-dark"></span>
+            <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
+                <h5 class="text-white font-weight-bolder mb-4 pt-2">Daily Reminder</h5>
+                
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <i class="fa fa-usd" style="font-size: 12px;" aria-hidden="true"></i>  Per Coin Rate: <strong><%=websiteDetails.website_per_coin%></strong>
+                    </li>
+                    <li class="list-group-item">
+                        <i class="fa fa-key" style="font-size: 12px;" aria-hidden="true"></i>  Daily Login Bonus: <strong><%=bonus.b_daily_login_bonus.toLocaleString()%></strong> <span style="font-size: 14px;">coins</span>
+                    </li>
+                    <li class="list-group-item">
+                        <i class="fa fa-users" style="font-size: 12px;" aria-hidden="true"></i>  Referral Bonus: <strong><%=websiteDetails.website_currency + bonus.b_referral_bonus.toLocaleString()%></strong>
+                    </li>
+                    <li class="list-group-item">
+                        <i class="fa fa-bullhorn" style="font-size: 12px;" aria-hidden="true"></i>  Sponsored Link Bonus: <strong><%=bonus.b_share_bonus.toLocaleString()%></strong> <span style="font-size: 14px;">coins</span>
+                    </li>
+                    <li class="list-group-item">
+                        <i class="fa fa-video-camera" style="font-size: 12px;" aria-hidden="true"></i>  First To Watch Video Bonus: <strong><%=bonus.b_first_to_watch_bonus.toLocaleString()%></strong> <span style="font-size: 14px;">coins</span>
+                    </li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</div>

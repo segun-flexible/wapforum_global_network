@@ -1,0 +1,414 @@
+<%-include("../partials/header");%>
+
+<div class="dashboard-ecommerce">
+<div class="container-fluid dashboard-content ">
+
+<div class="row">
+  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+    <div class="page-header">
+      <h2 class="pageheader-title">Admin Dashboard </h2>
+    </div>
+  </div>
+</div>
+
+<!--BASIC STATS-->
+<div class="row">
+  <!-- ============================================================== -->
+  <!-- sales  -->
+  <!-- ============================================================== -->
+  <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+    <div class="card border-3 border-top border-top-primary">
+      <div class="card-body">
+        <h5 class="text-muted">Users</h5>
+        <div class="metric-value d-inline-block">
+          <h3 class="mb-1"><%=members%></h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ============================================================== -->
+  <!-- end sales  -->
+  <!-- ============================================================== -->
+  <!-- ============================================================== -->
+  <!-- new customer  -->
+  <!-- ============================================================== -->
+  <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+    <div class="card border-3 border-top border-top-primary">
+      <div class="card-body">
+        <h5 class="text-muted">Active Investment</h5>
+        <div class="metric-value d-inline-block">
+          <h3 class="mb-1"><%=activeInvestment%></h3>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <!-- ============================================================== -->
+  <!-- end new customer  -->
+  <!-- ============================================================== -->
+  <!-- ============================================================== -->
+  <!-- visitor  -->
+  <!-- ============================================================== -->
+  <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+    <div class="card border-3 border-top border-top-primary">
+      <div class="card-body">
+        <h5 class="text-muted">Packages</h5>
+        <div class="metric-value d-inline-block">
+          <h3 class="mb-1"><%=packages%></h3>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- ============================================================== -->
+  <!-- end visitor  -->
+  <!-- ============================================================== -->
+  <!-- ============================================================== -->
+  <!-- total orders  -->
+  <!-- ============================================================== -->
+  <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+    <div class="card border-3 border-top border-top-primary">
+      <div class="card-body">
+        <h5 class="text-muted">Report</h5>
+        <div class="metric-value d-inline-block">
+          <h3 class="mb-1"><%=reports%></h3>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <!-- ============================================================== -->
+  <!-- end total orders  -->
+  <!-- ============================================================== -->
+</div>
+<!--BASIC STATS-->
+
+<!--TOP INVESTORS & REFERRER-->
+<div class="row">
+
+  <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+    <div class="card">
+      <h5 class="card-header">Top 10 Investors</h5>
+
+      <div class="card-body p-0">
+        <%if(topInvestors.length> 0){ %>
+          <div class="table-responsive">
+            <table class="table">
+              <thead class="bg-light">
+                <tr class="border-0">
+
+                  <th class="border-0">#</th>
+                  <th class="border-0">Avatar</th>
+                  <th class="border-0">User</th>
+                  <th class="border-0">Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <%topInvestors.map((us,index)=>{ %>
+                  <tr>
+
+
+
+                    <td>
+                      <%=index + 1 %>
+                    </td>
+
+                    <td>
+                      <div class="m-r-10"><img src="<%=us.avatar ? us.avatar:'/img/avatar.jpg' %>" alt="user"
+                          style="border-radius: 50%;width: 40px;height: 40px;"></div>
+                    </td>
+
+                    <td style="text-transform: capitalize;">
+                      <%=us.fullname %> (<%=us.username%>)
+                    </td>
+
+                    <td>
+                      <%=websiteDetails.website_currency + us.r_plan_price.toLocaleString()%>
+                    </td>
+
+                  </tr>
+
+
+                  <% }) %>
+
+                    <tr>
+                      <td colspan="9"></td>
+                    </tr>
+              </tbody>
+
+            </table>
+
+
+          </div>
+          <% }else{%>
+            <h3 class="text-center pt-3">No Investment At The Moment</h3>
+            <%}%>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+    <div class="card">
+      <h5 class="card-header">Top 10 Referrer</h5>
+
+      <div class="card-body p-0">
+        <%if(referral.length> 0){ %>
+          <div class="table-responsive">
+            <table class="table">
+              <thead class="bg-light">
+                <tr class="border-0">
+
+                  <th class="border-0">#</th>
+                  <th class="border-0">Avatar</th>
+                  <th class="border-0">User</th>
+                  <th class="border-0">Referral</th>
+                </tr>
+              </thead>
+              <tbody>
+                <%referral.map((us,index)=>{ %>
+                  <tr>
+
+
+
+                    <td>
+                      <%=index + 1 %>
+                    </td>
+
+                    <td>
+                      <div class="m-r-10"><img src="<%=us.avatar ? us.avatar:'/img/avatar.jpg' %>" alt="user"
+                          style="border-radius: 50%;width: 40px;height: 40px;"></div>
+                    </td>
+
+                    <td style="text-transform: capitalize;">
+                      <%=us.fullname %> (<%=us.username%>)
+                    </td>
+
+                    <td>
+                      <%=us.referral_total_count%>
+                    </td>
+
+                  </tr>
+
+
+                  <% }) %>
+
+                    <tr>
+                      <td colspan="9"></td>
+                    </tr>
+              </tbody>
+
+            </table>
+
+
+          </div>
+          <% }else{%>
+            <h3 class="text-center pt-3">No Referral At The Moment</h3>
+            <%}%>
+      </div>
+
+    </div>
+  </div>
+
+
+</div>
+<!--TOP INVESTORS & REFERRER-->
+
+<!--PENDING ACTIVATION-->
+<div class="row">
+
+  <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="card">
+                    <h5 class="card-header">Recent Pending Activation Fee</h5>
+
+                    <div class="card-body p-0">
+                        <%if(pendingActivation.length> 0){ %>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class="bg-light">
+                                        <tr class="border-0">
+                                    
+                                            <th class="border-0">#</th>
+                                            <th class="border-0">Trx ID</th>
+                                            <th class="border-0">User</th>
+                                            <th class="border-0">Amount</th>
+                                            <th class="border-0">Date</th>
+                                            <th class="border-0">Status</th>
+                                            
+                                            
+                                            
+        
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <%pendingActivation.map((ht,index)=>{ %>
+                                            <tr>
+                                               
+
+
+                                                <td>
+                                                    <%=index + 1 %>
+                                                </td>
+        
+                                                <td>
+                                                    <%=ht.h_trans %>
+                                                </td>
+                                                <td>
+                                                    <strong><%=ht.username%></strong>
+                                                </td>
+                                                <td>
+                                                    <%=websiteDetails.website_currency%><%=ht.h_amount %> 
+                                                </td>
+                                                
+                                                
+                                                <td>
+                                                    <%=ht.h_created%>
+                                                </td>
+
+                                                
+        
+                                                <td>
+                                                    <%if(ht.h_status){%>
+                                                    <button type="button" class="btn btn-success btn-xs waves-effect waves-light">Completed</button>
+                                                    <%}else{%>
+                                                    
+                                                    <button type="button" class="btn btn-danger btn-xs waves-effect waves-light">Pending</button>
+                                                    
+                                                    <%} %>
+                                                </td>
+        
+                                                
+                                                
+                                                
+        
+        
+                                            </tr>
+
+                                            
+                                            <% }) %>
+        
+                                                <tr>
+                                                    <td colspan="9"></td>
+                                                </tr>
+                                    </tbody>
+        
+                                </table>
+
+                    
+                            </div>
+                            <% }else{%>
+                                <h3 class="text-center pt-3">No Activation At The Moment</h3>
+                                <%}%>
+                    </div>
+                    <div class="card-footer text-center">
+                      <a href="/admin/activation" class="btn-primary-link">View More</a>
+                    </div>
+                </div>
+            </div>
+
+
+</div>
+<!--PENDING ACTIVATION-->
+
+<!--PENDING INVESTMENT-->
+<div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12 col-12">
+  <div class="card">
+
+<h5 class="card-header">Recent Pending Merge</h5>
+
+
+    <div class="card-body p-0">
+      <%if(pendingInvestment.length> 0){ %>
+        <div class="table-responsive">
+          <table class="table">
+            <thead class="bg-light">
+              <tr class="border-0">
+                <th class="border-0">#</th>
+                <th class="border-0">TrxId</th>
+                <th class="border-0">Amount</th>
+                <th class="border-0">Date</th>
+                <th class="border-0">Status</th>
+
+                
+
+              </tr>
+            </thead>
+            <tbody>
+              <%pendingInvestment.map((ht,index)=>{ %>
+                <tr>
+                  <td>
+                    <%=index + 1 %>
+                  </td>
+
+                  <td>
+                    <%=ht.h_trans %>
+                  </td>
+
+                  
+
+
+                  <td>
+                    <%=websiteDetails.website_currency%><%=ht.h_amount.toLocaleString() %>
+                  </td>
+
+                 
+
+                  <td>
+                    <%=ht.h_created_at%>
+                  </td>
+
+                  <td>
+                    <%if(ht.h_status===1){%>
+                      <button type="button" class="btn btn-success btn-xs waves-effect waves-light">Approved</button>
+                      <%}else if(ht.h_status===2){%>
+                        <button type="button" class="btn btn-info btn-xs waves-effect waves-light">Completed</button>
+                        <%}else{%>
+                          <button type="button"
+                            class="btn btn-danger btn-xs waves-effect waves-light">Pending</button>
+                          <%}%>
+                  </td>
+
+                  
+
+                  
+                 
+                </tr>
+
+               
+
+                  <%})%>
+
+
+                    <tr>
+                      <td colspan="9"></td>
+                    </tr>
+            </tbody>
+
+          </table>
+
+
+        </div>
+        <% }else{%>
+          <h3 class="text-center pt-3">No Pending Merge History At The Moment</h3>
+          <%}%>
+    </div>
+
+    <div class="card-footer text-center">
+      <a href="/admin/history/merge/pending" class="btn-primary-link">View More</a>
+    </div>
+  </div>
+</div>
+
+</div>
+<!--PENDING INVESTMENT-->
+
+
+
+
+
+<!--END-->
+</div>
+</div>
+<%-include("../partials/footer");%>

@@ -1,0 +1,108 @@
+<div class="row my-4">
+
+    <div class="col-lg-7 col-md-7 mb-5">
+        <div class="card">
+            <div class="card-header pb-0">
+                <div class="row">
+                    <div class="col-lg-6 col-7">
+                        <h6>Last 10 Referrals</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body px-0 pb-2">
+
+                <%if(referralHistory.length){%>
+                <div class="table-responsive">
+                    <table class="table align-items-center mb-0">
+                        <thead>
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    #</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    User</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Date</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Status</th>
+                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <%referralHistory.map((rh,index) =>{%>
+                            <tr>
+                                <td class="align-middle text-center text-sm">
+                                    <span class="text-xs font-weight-bold">
+                                        <%=index + 1%>
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <div class="d-flex px-2 py-1">
+                                        <div>
+                                            <img src="<%=rh.avatar ? rh.avatar:'/img/avatar/avatar.jpg' %>" class="avatar avatar-sm me-3" alt="xd">
+                                        </div>
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h6 class="mb-0 text-sm" style="text-transform: capitalize;"><%=rh.fullname%></h6>
+                                        </div>
+                                    </div>
+                                </td>
+                            
+                            
+                                <td class="align-middle text-center text-sm">
+                                    <span class="text-xs font-weight-bold"> <%=rh.created_at%> </span>
+                                </td>
+                            
+                                <td class="align-middle text-center text-sm">
+                                    <%if(rh.r_status){%>
+                                    <button type="button" class="btn bg-gradient-success btn-sm mb-0">Verified</button>
+                                    <%}else{%>
+                                    <button type="button" class="btn bg-gradient-danger btn-sm mb-0">Unverified</button>
+                                    <%}%>
+                                </td>
+                            
+                            </tr>
+                            
+                            <%})%>
+                
+                        </tbody>
+                        
+                    </table>
+
+                    <div class="d-flex justify-content-center">
+                        <a href="/user/dashboard/history/referral" class="btn btn-sm bg-gradient-primary mt-4 d-flex">View More</a>
+
+                    </div>
+
+                </div>
+                <%}else{%>
+                <h6 class="text-center pt-3">No Referral Stats At The Moment</h6>
+                <%}%>
+                
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-lg-5 col-md-5">
+        <div class="card p-3">
+            <form id="referral-link">
+                <div class="form-group">
+                    <label for="ref_link" class="form-control-label">My Referral Link</label>
+                    <input class="form-control" type="text" value="<%=homeUrl%>/register?ref=<%=user.username%>" id="ref_link">
+                </div>
+                <div class="form-group d-flex justify-content-center">
+                    <button class="btn btn-icon btn-3 btn-primary" type="submit">
+                        <span class="btn-inner--icon"><i class="fa fa-files-o" aria-hidden="true"></i></span>
+                        <span class="btn-inner--text"> Copy Referral Link</span>
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+
+
+</div>

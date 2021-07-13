@@ -1,0 +1,54 @@
+<div class="modal fade" id="editWalletInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    style="display: none;" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <strong class="modal-title method-name" id="exampleModalLabel">Edit Wallet Info</strong>
+                <a href="javascript:void(0)" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </a>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <form id="edit-wallet">
+
+                        <div class="row">
+                            
+
+                            <div class="col-md-12">
+                                <div class="form-group mt-4">
+                                    <label for="number" class="font-weight-bold"> Account Number</label>
+
+                                    <input required="" id="number" type="text" class="form-control form-control-lg"
+                                        placeholder="Account Number">
+                                </div>
+
+                                <div class="form-group mt-4">
+                                    <label for="bank" class="font-weight-bold"> Bank Name</label>
+                                    <select class="form-control form-control-lg" id="bank">
+                                        <%banks.map(bk=>{%>
+                                            <option value="<%=bk.code%>">
+                                                <%=bk.name%>
+                                            </option>
+                                            <%})%>
+                                    </select>
+                                </div>
+
+                            </div>
+
+
+                                <div class="col-md-12 d-flex justify-content-end">
+                                <div class="form-group">
+                                    <button type="submit" id="proceed" class="btn bg-gradient-primary">Save Changes</button>
+                                    <button type="button" class="btn btn-link  ml-auto" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

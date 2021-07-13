@@ -1,0 +1,41 @@
+<div id="view-<%=us.uid%>" class="modal fade" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><%=us.username%> Investment Package Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                
+                <%if(us.r_plan_name){%>
+                <ul class="list-group">
+                
+                    <li class="list-group-item dark-bg">Package Name: <span class="deposit-amount font-weight-bold text-dark">
+                            <%=us.r_plan_name%>
+                        </span></li>
+                
+                    <li class="list-group-item dark-bg">Plan Price: <span class="deposit-amount font-weight-bold text-dark">
+                            <%=websiteDetails.website_currency + us.r_plan_price.toLocaleString()%>
+                        </span></li>
+
+                    <li class="list-group-item dark-bg">Plan ROI: <span class="deposit-amount font-weight-bold text-dark">
+                            <%=us.r_roi%>%
+                        </span></li>
+
+                    
+                
+                </ul>
+                <%}else{%>
+                <h6><%=us.username%> Has No Active Investment Package</h6>
+                <%}%>
+
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-dismiss="modal"> Close </button>
+            </div>
+        </div>
+    </div>
+</div>

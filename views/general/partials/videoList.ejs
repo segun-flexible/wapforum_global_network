@@ -1,0 +1,18 @@
+<div class="col-lg-3 col-sm-6 videoitem">
+    <div class="b-video">
+        <div class="v-img">
+            <a href="/videos/<%=vd.v_id%>"><img src="<%=vd.v_thumbnail_url%>" alt="" style="width: 100%;height: 284px;object-fit: cover;"></a>
+            <div class="time"><%=vd.v_reward_coin%> <%=vd.v_reward_coin > 1 ? 'Coins':'Coin'%></div>
+        </div>
+        <div class="v-desc">
+            <a href="/videos/<%=vd.v_id%>"><%=vd.v_title%></a>
+        </div>
+        <div class="v-views">
+            <span><i class="fa fa-user" aria-hidden="true"></i> <%=vd.username%></span>
+
+            <span><i class="fa fa-eye" aria-hidden="true"></i> <%=vd.v_views%> <%=vd.v_views > 1 ? 'Views':'View'%></span> 
+            
+            <span><i class="fa fa-clock-o" aria-hidden="true"></i> <%=vd.v_created_at%></span>
+        </div>
+    </div>
+</div>

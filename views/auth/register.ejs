@@ -1,0 +1,92 @@
+<%-include("../partials/header")%>
+
+    <main id="tt-pageContent" class="tt-offset-small">
+        <div class="container">
+            <div class="tt-loginpages-wrapper">
+                <div class="tt-loginpages">
+                    <a href="/" class="tt-block-title">
+                        <img src="<%=websiteDetails.website_logo%>" alt="<%=websiteDetails.website_title%>">
+                        <div class="tt-title">
+                            Welcome to <%=websiteDetails.website_title%>
+                        </div>
+                        <div class="tt-description">
+                            Join the forum to unlock true power of community.
+                        </div>
+                    </a>
+                    <form class="form-default" id="register">
+
+                        <div class="form-group">
+                            <label for="loginUserName">Username</label>
+                            <input type="text" name="name" class="form-control" id="loginUserName"
+                                placeholder="azyrusmax">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="loginUserEmail">Email</label>
+                            <input type="text" name="name" class="form-control" id="loginUserEmail"
+                                placeholder="Sample@sample.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="loginUserPassword">Password</label>
+                            <input type="password" name="name" class="form-control" id="password"
+                                placeholder="************">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="loginUserPassword">Confirm Password</label>
+                            <input type="password" name="name" class="form-control" id="password2"
+                                placeholder="************">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="loginUserPassword">Security Question</label>
+                            <p>Please answer the question provided. This process is used to prevent automated processes.</p>
+                            <h>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, voluptas.</h>
+                            <input type="password" name="name" class="form-control" id="password2"
+                                placeholder="************">
+                        </div>
+
+                        <div class="form-group">
+                            <a href="#" class="btn btn-secondary btn-block">Create my account</a>
+                        </div>
+                        <p>Or signup with social network</p>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <a href="#" class="btn btn-color01 btn-secondary btn-block">
+                                        <i>
+                                            <svg class="icon">
+                                                <use xlink:href="#facebook-f-brands"></use>
+                                            </svg>
+                                        </i>
+                                        Facebook
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <a href="#" class="btn btn-color02 btn-block">
+                                        <i>
+                                            <svg class="icon">
+                                                <use xlink:href="#twitter-brands"></use>
+                                            </svg>
+                                        </i>
+                                        Twitter
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <p>Already have an account? <a href="/login" class="tt-underline">Login here</a></p>
+                        <div class="tt-notes">
+                            By signing up, signing in or continuing, I agree to
+                            Forum19’s <a href="/page/terms-of-service" class="tt-underline">Terms of Use</a> and <a href="/page/privacy-policy"
+                                class="tt-underline">Privacy Policy.</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+<%-include("../partials/footer")%>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="<%=websiteDetails.website_favicon %>">
+    <link rel="icon" type="image/png" href="<%=websiteDetails.website_favicon %>">
+
+    
+    <title>
+        <%=title%> - <%=websiteDetails.website_tagline %>
+    </title>
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <!-- Nucleo Icons -->
+    <link href="/css/user/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="/css/user/css/nucleo-svg.css" rel="stylesheet" />
+    <link href="/css/user/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- CSS Files -->
+    <link id="pagestyle" href="/css/user/css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
+</head>
+
+<body class="error-page">
+
+<nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3  navbar-transparent">
+    <div class="container">
+        <a class="navbar-brand font-weight-bolder" href="/">
+            <%=websiteDetails.website_title %>
+        </a>
+        
+        
+    </div>
+</nav>
+
+
+
+<main class="main-content mt-0 ps">
+    <section class="my-10">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 my-auto">
+                    <h1 class="display-1 text-bolder text-gradient text-danger"><%=title%></h1>
+                    
+                    <p class="lead"><%=text%>.</p>
+                    <button type="button" class="btn bg-gradient-dark mt-4">Go Back</button>
+                </div>
+                <div class="col-lg-6 my-auto position-relative">
+                    <img class="w-100 position-relative" src="/img/user/illustrations/error-404.png"
+                        alt="404-error">
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+        <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+    </div>
+    <div class="ps__rail-y" style="top: 0px; right: 0px;">
+        <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+    </div>
+</main>
+
+
+
+
+<footer class="footer py-5">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-8 mx-auto text-center mb-4 mt-2">
+                    <a href="<%=websiteDetails.website_facebook %>" target="_blank" class="text-secondary me-xl-4 me-4">
+                        <span class="text-lg fab fa-facebook"></span>
+                    </a>
+                    <a href="<%=websiteDetails.website_twitter %>" target="_blank" class="text-secondary me-xl-4 me-4">
+                        <span class="text-lg fab fa-twitter"></span>
+                    </a>
+                    <a href="<%=websiteDetails.website_instagram %>" target="_blank" class="text-secondary me-xl-4 me-4">
+                        <span class="text-lg fab fa-instagram"></span>
+                    </a>
+                    <a href="<%=websiteDetails.website_youtube %>" target="_blank" class="text-secondary me-xl-4 me-4">
+                        <span class="text-lg fab fa-youtube"></span>
+                    </a>
+                   
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8 mx-auto text-center mt-1">
+                    <p class="mb-0 text-secondary">
+                        Designed By <a href="<%=websiteDetails.website_dev_link %>"><%=websiteDetails.website_dev_name%></a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!--   Core JS Files   -->
+    <script src="/js/partials/error.js"></script>
+    <script src="/js/user/plugins/perfect-scrollbar.min.js"></script>
+    <script src="/js/user/plugins/smooth-scrollbar.min.js"></script>
+    <script src="/js/user/plugins/kit-awesome.js"></script>
+</body>
+
+</html>

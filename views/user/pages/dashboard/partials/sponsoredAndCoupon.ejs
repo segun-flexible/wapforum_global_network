@@ -1,0 +1,78 @@
+<div class="col-lg-7 mb-lg-0 mb-4">
+    <div class="card">
+        <div class="card-body p-3">
+
+            <%if(user.can_earn){%>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="d-flex flex-column h-100">
+                        <p class="mb-1 pt-2 text-bold">Sponsored Post</p>
+                        
+                        <%if(sponsored){%>
+                        <div class="card">
+                            <div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
+                                <a href="javascript:;" class="d-block">
+                                    <img src="/img/user/illustrations/rocket-white.png" class="img-fluid border-radius-lg">
+                                </a>
+                            </div>
+                        
+                            <div class="card-body pt-2">
+                                
+                                <a onclick="earnSponsored('<%=sponsored.s_link%>','<%=sponsored.s_id%>',this)" href="javascript:;" class="card-title h5 d-block text-darker">
+                                    <%=sponsored.s_title%>
+                                </a>
+                                <p class="card-description">
+                                    <%=sponsored.s_description%>
+                                </p>
+
+                                <a onclick="earnSponsored('<%=sponsored.s_link%>','<%=sponsored.s_id%>',this)" class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto mb-4" href="javascript:;">
+                                    <%=sponsored.s_button_text%>
+                                        <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                                </a>
+
+
+                                <div class="stats">
+                                    <small><i class="fa fa-clock-o" aria-hidden="true"></i> <%=sponsored.s_created_at%></small>
+                                </div>
+
+                                
+                                
+                                
+
+                                
+                            </div>
+                        </div>
+                        <%}else{%>
+                        <center>
+                            <h6>No Sponsored Post Yet</h6>
+                        </center>
+                        <%}%>
+                        
+
+                    </div>
+                </div>
+
+                
+            </div>
+
+            <%}else{%>
+
+            <form id="unlock">
+                <div class="form-group">
+                    <label for="coupon" class="form-control-label">Coupon Code</label>
+                    <input class="form-control" type="text" placeholder="Enter Coupon Code Here" id="coupon">
+                </div>
+                <div class="form-group d-flex justify-content-center">
+                    <button class="btn btn-icon btn-3 btn-primary" type="submit">
+                        <span class="btn-inner--icon"><i class="fa fa-rocket" aria-hidden="true"></i></span>
+                        <span class="btn-inner--text"> Unlock Account</span>
+                    </button>
+                </div>
+            </form>
+
+            <%}%>
+            
+        </div>
+    </div>
+</div>

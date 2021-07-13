@@ -1,0 +1,31 @@
+<div id="pay-view-<%=h.h_id%>" class="modal fade" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="pay_form">
+                    <div class="form-group">
+                        <label for="title">Amount</label>
+                        <input type="number" class="form-control" id="amount" value="<%=h.h_amount_recieved%>" required="">
+                        
+                        <input type="number"  hidden="" id="depoId" value="<%=h.h_id%>">
+                        
+                        <input type="number"  hidden="" id="userId" value="<%=h.h_user_id%>">
+                    
+                    
+                    </div>
+                    <button type="submit" class="btn btn-success"> Make Payment </button>
+
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+

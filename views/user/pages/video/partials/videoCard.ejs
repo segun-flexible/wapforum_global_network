@@ -1,0 +1,24 @@
+<div class="card">
+    <div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
+        <a href="<%=url%>/<%=video.v_id%>" class="d-block">
+            <img src="<%=video.v_thumbnail_url%>" class="img-fluid border-radius-lg videoImg">
+        </a>
+    </div>
+
+    <div class="card-body pt-2">
+        
+        <a href="<%=url%>/<%=video.v_id%>" class="card-title h6 d-block text-darker videoText truncate">
+            <%=video.v_title%>
+        </a>
+
+        <a href="<%=url%>/<%=video.v_id%>">
+
+        <span class="text-xs font-weight-bold my-2"><i class="fa fa-money icon-padding" aria-hidden="true"></i> <strong><%=video.v_reward_coin%></strong> <%=video.v_reward_coin > 1 ? 'Coins' : 'Coin'%></span> | <span class="text-xs font-weight-bold my-2"> <i class="fa fa-hourglass-half icon-padding" aria-hidden="true"></i> <%=video.v_watch_sec%> sec</span> | <span class="text-xs font-weight-bold my-2"> <i class="fa fa-eye icon-padding" aria-hidden="true"></i> <%=video.v_views%></span> | <span class="text-xs font-weight-bold my-2"> <i class="fa fa-cloud-upload icon-padding" aria-hidden="true"></i> ID: <%=video.v_id%></span> 
+
+        </a>
+
+        <div class="stats pt-5">
+            <small>Posted by <strong class="videoText"><%=video.username%></strong> at <%=video.v_created_at%></small>
+        </div>
+    </div>
+</div>

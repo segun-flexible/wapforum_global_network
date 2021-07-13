@@ -1,0 +1,105 @@
+<div id="edit-<%=us.uid %>" class="modal fade" tabindex="-1" role="dialog" style="display: none;"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit <%=us.username%>
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="edit-user">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="username" value="<%=us.username%>" required="">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="fullname">Fullname</label>
+                        <input type="text" class="form-control" id="fullname" value="<%=us.fullname%>">
+                    </div>
+
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" id="email" value="<%=us.email%>">
+                    </div>
+
+                    
+                    <div class="form-group">
+                        <label for="phone_number">Phone Number</label>
+                        <input type="text" class="form-control" id="phone_number" value="<%=us.phone_number%>">
+                    </div>
+
+                    
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" class="form-control" id="address" value="<%=us.address%>">
+                    </div>
+
+                    
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" class="form-control" id="city" value="<%=us.city%>">
+                    </div>
+
+                    
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <input type="text" class="form-control" id="state" value="<%=us.state%>">
+                    </div>
+
+                    
+
+                    
+                    <div class="form-group">
+                        <label for="roi_balance">ROI Balance</label>
+                        <input type="number" class="form-control" id="roi_balance" value="<%=us.roi_balance%>">
+                    </div>
+
+                    
+                    <div class="form-group">
+                        <label for="referral_balance">Referral Balance</label>
+                        <input type="number" class="form-control" id="referral_balance" value="<%=us.referral_balance%>">
+                    </div>
+
+                    
+                    <div class="form-group">
+                        <label for="activation">Activation Fee Balance</label>
+                        <input type="number" class="form-control" id="activation" value="<%=us.current_activation_fee%>">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="locked">Locked Status</label>
+                        <select class="form-control" id="locked">
+                            <%if(us.is_lock){%>
+                            <option value="">Account Is Locked</option>
+                            <option value="1">Locked</option>
+                            <option value="0">Unlocked</option>
+                            <%}else{%>
+                            <option value="">Account Is Unlocked</option>
+                            <option value="0">Unlocked</option>
+                            <option value="1">Locked</option>
+                            <%}%>
+                        </select>
+                    </div>
+
+                    
+                    
+
+                    
+                    
+                    
+                    <input type="number" hidden="" value="<%=us.uid %>" id="id">
+
+                    <button type="submit" class="btn btn-success"> Save Changes </button>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

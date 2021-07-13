@@ -1,0 +1,88 @@
+<div class="row my-4">
+
+    <div class="col-12 mb-5">
+        <div class="card">
+            <div class="card-header pb-0">
+                <div class="row">
+                    <div class="col-lg-6 col-7">
+                        <h6>Last 10 Earnings History</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body px-0 pb-2">
+
+                <%if(earningHistory.length){%>
+                    <div class="table-responsive">
+                        <table class="table align-items-center mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        #</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Details</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Amount</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Date</th>
+                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                    
+                                <%earningHistory.map((eh,index)=>{%>
+                                    <tr>
+                                        <td class="align-middle text-left text-sm p-4">
+                                            <span class="text-xs font-weight-bold">
+                                                <%=index + 1%>
+                                            </span>
+                                        </td>
+                    
+                                        <td class="align-middle text-left text-sm p-4">
+                                            <span class="text-xs font-weight-bold">
+                                                <%=eh.h_text%>
+                                            </span>
+                                        </td>
+                    
+                    
+                                        <td class="align-middle text-left text-sm p-4">
+                                            <span class="text-xs font-weight-bold">
+                                                <%if(eh.is_referral){%>
+                                                <%=websiteDetails. website_currency + eh.h_amount.toLocaleString()%>
+                                                <%}else{%>
+                                                <%=eh.h_amount%> <span>coins</span>
+                                                <%}%>
+                                            </span>
+                                        </td>
+                    
+                                        <td class="align-middle text-left text-sm p-4">
+                                            <span class="text-xs font-weight-bold">
+                                                <%=eh.h_created_at%>
+                                            </span>
+                                        </td>
+                    
+                                    </tr>
+                    
+                                    <%})%>
+                    
+                            </tbody>
+                    
+                        </table>
+                    
+                        <div class="d-flex justify-content-center">
+                            <a href="/user/dashboard/history/earnings" class="btn btn-sm bg-gradient-primary mt-4 d-flex">View More</a>
+                    
+                        </div>
+                    
+                    </div>
+                    <%}else{%>
+                        <h6 class="text-center pt-3">No Earning Stats At The Moment</h6>
+                    <%}%>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

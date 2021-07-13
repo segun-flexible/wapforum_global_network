@@ -1,0 +1,95 @@
+<%-include("../../partials/header")%>
+
+
+<div class="container-fluid mt--6">
+
+
+
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+            
+            
+            
+            <div class="row">
+                
+                <div class="col-lg-8">
+                    <div class="card">
+                        <div class="card-body">
+                            
+                    
+                            <form id="withdraw_form">
+                                <div class="form-group">
+                                    <label for="amount">Amount To Withdraw</label>
+                                    <input required="" value="" type="number" class="form-control" id="amount" placeholder="Amount">
+                                </div>
+                    
+                                
+                    
+                                <div class="form-group mb-3">
+                                    <label for="type">Withdrawal Type</label>
+                                    <select required id="type" class="form-control">
+                                        <option selected value="">Open this select menu</option>
+                                        
+                                        <option value="ref">Referral Earnings</option>
+                                        <option selected="" value="act">Activities Earnings</option>
+                                        <!-- <option value="all">Referral Earnings + Activities Earnings</option> -->
+                    
+                                    </select>
+                                </div>
+                    
+                                <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
+                            </form>
+                    
+                        </div> <!-- end card-body-->
+                    </div>
+                </div>
+              
+
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="text-center">Your Balance Info</h5>
+                            <div class="nav nav-pills flex-column nav-pills-tab text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                            
+                            
+                                <a class="nav-link mt-2 shadow py-2" id="custom-v-pills-payment-tab" data-toggle="pill" href="#custom-v-pills-payment" role="tab" aria-controls="custom-v-pills-payment" aria-selected="false">
+                                    <i class="fa fa-money d-block font-24"></i>
+                                    <h6><%=user.earnings_balance.toLocaleString()%> <span style="font-size: 14px;">coins</span></h6> 
+                                    Activities Earnings Balance
+                                </a>
+                            
+                                <a class="nav-link pt-4 mt-2 shadow py-2" id="custom-v-pills-payment-tab" data-toggle="pill" href="#custom-v-pills-payment" role="tab" aria-controls="custom-v-pills-payment" aria-selected="false">
+                                    <i class="fa fa-money d-block font-24"></i>
+                                    <h6><%=websiteDetails.website_currency%><%=user.referral_balance.toLocaleString()%></h6>
+                                    Referral Balance
+                                </a>
+                                
+                                <a class="nav-link pt-4 mt-2 shadow py-2" id="custom-v-pills-payment-tab" data-toggle="pill" href="#custom-v-pills-payment" role="tab" aria-controls="custom-v-pills-payment" aria-selected="false">
+                                    <i class="fa fa-exchange d-block font-24"></i>
+                                    <h6>Conversion Rate</h6>
+                                    <p>1 coin = <strong><%=websiteDetails.website_currency%><%=websiteDetails. website_per_coin%></strong></p>
+                                    <p>10 coins = <strong><%=websiteDetails.website_currency%><%=(websiteDetails. website_per_coin * 10).toLocaleString()%></strong></p>
+                                    <p>100 coins = <strong><%=websiteDetails.website_currency%><%=(websiteDetails. website_per_coin * 100).toLocaleString()%></strong></p>
+                                </a>
+                            
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+ 
+
+
+
+
+<script src="/js/user/withdrawal/withdrawal.js"></script>
+
+<script src="/js/partials/fetcher.js"></script>
+<script src="/js/partials/sweetalert.js"></script>
+
+<%-include("../../partials/footer")%>

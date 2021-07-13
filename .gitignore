@@ -1,0 +1,8 @@
+node_modules
+seeder.txt
+what_next.txt
+debug-log
+.vscode
+index.html
+wapforum_mybb708.sql
+.env
